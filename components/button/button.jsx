@@ -1,23 +1,26 @@
-export default function Button(){
+const defaultClass = 'px-4 h-10 rounded-lg text-white bg-gradient-to-br ';
+const primary = (props) => {
     return(
-        <div className="p-24">
-            <div className="flex">
-                <div className="mr-2">
-                    <button className="btn btn-secondary">
-                        Button
-                    </button>
-                </div>
-                <div className="mr-2">                
-                    <button className="btn btn-primary">
-                        Button
-                    </button>
-                </div>
-                <div className="mr-2">
-                    <button className="btn btn-success">
-                        Button
-                    </button>
-                </div>
-            </div>
-        </div>
+        <button className={`${defaultClass} ${props.className && props.className} from-blue-500 to-teal-700 hover:from-blue-700 hover:to-teal-900 duration-500 transition-all`}>
+            { props.children }
+        </button>
     )
 }
+
+const danger = (props) => {
+    return(
+        <button className={`${defaultClass} ${props.className && props.className} from-red-500 to-rose-700 hover:from-red-700 hover:to-rose-900 duration-500 transition-all`}>
+            { props.children }
+        </button>
+    )
+}
+
+const success = (props) => {
+    return(
+        <button className={`${defaultClass} ${props.className && props.className} from-green-500 to-cyan-700 hover:from-green-700 hover:to-cyan-900 duration-500 transition-all`}>
+            { props.children }
+        </button>
+    )
+}
+
+export { primary, danger, success }

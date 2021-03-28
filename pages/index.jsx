@@ -1,10 +1,14 @@
 import React from 'react';
-import DefaultNavbar from '../components/navbar/defaultNavbar';
+import Layout from '../components/layout/Layout';
 
 export default function home(){
   return(
     <>
-      <DefaultNavbar />
+      <Layout title="nextjs Tailwindcss 2">
+        <div className="container">
+          Welcome to tailwindcss 2
+        </div>
+      </Layout>
     </>
   )
 }

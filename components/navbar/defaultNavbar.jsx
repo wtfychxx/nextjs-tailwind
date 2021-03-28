@@ -1,7 +1,9 @@
 import { useState } from "react";
+import Link from 'next/link';
 
 export default function DefaultNavbar(){
     const [isMobile, setIsMobile] = useState(false)
+    const linkClass = 'block px-4 py-3 lg:py-5 text-rose-200 hover:text-white';
     return(
         <div className="bg-gradient-to-br from-rose-500 to-pink-500">
             <div className="flex flex-col lg:flex-row">
@@ -21,13 +23,15 @@ export default function DefaultNavbar(){
 
                 <div className={`${isMobile ? 'block' : 'hidden'} lg:flex flex-col lg:flex-row justify-between w-full py-4 lg:py-0`}>
                     <div className="flex flex-col lg:flex-row">
-                        <a href="#" className="block px-4 py-3 lg:py-5 text-rose-200 hover:text-white"> Home </a>
-                        <a href="#" className="block px-4 py-3 lg:py-5 text-rose-200 hover:text-white"> About </a>
-                        <a href="#" className="block px-4 py-3 lg:py-5 text-rose-200 hover:text-white"> Contact </a>
+                        <a href="#" className={linkClass}> Home </a>
+                        <a href="#" className={linkClass}> About </a>
+                        <a href="#" className={linkClass}> Contact </a>
                     </div>
                     <div className="flex flex-col lg:flex-row">
-                        <a href="#" className="block px-4 py-3 lg:py-5 text-rose-200 hover:text-white"> Log in </a>
-                        <a href="#" className="block px-4 py-3 lg:py-5 text-rose-200 hover:text-white"> Sign up </a>
+                        <Link href="/login">
+                            <a href="#" className={linkClass}> Log in </a>
+                        </Link>
+                        <a href="#" className={linkClass}> Sign up </a>
                     </div>
                 </div>
             </div>
