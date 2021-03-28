@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from '../components/button/button';
+import DefaultNavbar from '../components/navbar/defaultNavbar';
 
 export default function home(){
   return(
-    <div className="p-24">
-      <Button />
-    </div>
+    <>
+      <DefaultNavbar />
+    </>
   )
 }

@@ -1,8 +1,8 @@
 import React from 'react';
-import TestimoniCard from '../components/cards/testimoniCard';
+import DefaultForms from '../components/forms/DefaultForms';
 
 export default function card(){
     return(
-        <TestimoniCard />
+        <DefaultForms />
     )
 }
