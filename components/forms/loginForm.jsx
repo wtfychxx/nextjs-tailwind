@@ -1,0 +1,28 @@
+import * as Button from '../button/Button';
+
+export default function LoginForm(){
+    return(
+        <div className="container">
+            <div className="flex">
+                <div className="w-full lg:w-1/3">
+                    <div className="p-4 bg-gray shadow rounded-lg">
+                        <form>
+                            <div className="mb-5">
+                                <label htmlFor="email" className="block mb-2 text-sm"> Email </label>
+                                <input type="email" name="" id="" className="w-full rounded-lg border-gray-300 shadow-sm transition duration-200 focus:ring-2 focus:ring-blue-100 focus:border-blue-500"/>
+                            </div>
+                            <div className="mb-5">
+                                <label htmlFor="email" className="block mb-2 text-sm"> Gender </label>
+                                <select className="w-full rounded-lg border-gray-300 shadow-sm transition duration-200 focus:ring-2 focus:ring-blue-100 focus:border-blue-500" name="" id="">
+                                    <option value=""> Male </option>
+                                    <option value=""> Female </option>
+                                </select>
+                            </div>
+                            <Button.primary> Login </Button.primary>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}

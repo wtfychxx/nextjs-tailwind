@@ -23,7 +23,9 @@ export default function DefaultNavbar(){
 
                 <div className={`${isMobile ? 'block' : 'hidden'} lg:flex flex-col lg:flex-row justify-between w-full py-4 lg:py-0`}>
                     <div className="flex flex-col lg:flex-row">
-                        <a href="#" className={linkClass}> Home </a>
+                        <Link href="/">
+                            <a href="#" className={linkClass}> Home </a>
+                        </Link>
                         <a href="#" className={linkClass}> About </a>
                         <a href="#" className={linkClass}> Contact </a>
                     </div>
