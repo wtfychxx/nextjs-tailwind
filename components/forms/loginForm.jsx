@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import Router from 'next/router';
 import * as Button from '../button/Button';
+import Swal from 'sweetalert2';
 
 export default function LoginForm(){
     const [email, setEmail] = useState('')
@@ -7,11 +9,23 @@ export default function LoginForm(){
     
     const submitForm = event => {
         event.preventDefault()
-        console.log(`${email} - ${password}`)
+        if(email == 'fadhliyulyanto@gmail.com' && password == '123123123'){
+            Swal.fire({
+                icon: 'success',
+                title: 'Successfully login!'
+            }).then(() => {
+                Router.push('/card')
+            })
+        }else{
+            Swal.fire({
+                icon: 'warning',
+                title: "Incoorect email or password!"
+            });
+        }
     }
     return(
         <div className="container">
-            <div className="flex">
+            <div className="flex justify-center items-center">
                 <div className="w-full lg:w-1/3">
                     <div className="p-4 bg-gray shadow rounded-lg">
                         <form onSubmit={submitForm}>
