@@ -1,8 +1,11 @@
 import React from 'react';
-import DefaultForms from '../components/forms/DefaultForms';
+import MultipleCard from '../components/cards/multipleCard';
+import Layout from '../components/layout/Layout';
 
 export default function card(){
     return(
-        <DefaultForms />
+        <Layout className="bg-gray-200">
+            <MultipleCard />
+        </Layout>
     )
 }
