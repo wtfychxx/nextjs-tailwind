@@ -1,11 +1,11 @@
-import React from 'react';
-import MultipleCard from '../components/cards/multipleCard';
-import Layout from '../components/layout/Layout';
+import React from "react";
+import MultipleCard from "../components/cards/multipleCard";
+import Admin from "../components/layout/Admin";
 
-export default function card(){
-    return(
-        <Layout className="bg-gray-200">
-            <MultipleCard />
-        </Layout>
-    )
+export default function card() {
+  return (
+    <Admin title="Nextjs Tailwind">
+      <MultipleCard />
+    </Admin>
+  );
 }

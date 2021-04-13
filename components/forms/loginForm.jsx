@@ -9,7 +9,7 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
 
   const checkState = (field = "") => {
-    return (field = "") ? false : true;
+    return field == "" ? false : true;
   };
 
   const submitForm = async (event) => {
@@ -39,6 +39,18 @@ export default function LoginForm() {
           title: "Oops..Something went wrong!",
         });
       }
+    } else if (!stateMail && !statePass) {
+      Swal.fire({
+        title: "Please fill the field first!",
+      });
+    } else if (!stateMail) {
+      Swal.fire({
+        title: "Please fill email!",
+      });
+    } else if (!statePass) {
+      Swal.fire({
+        title: "Please fill password!",
+      });
     }
   };
 
@@ -48,7 +60,7 @@ export default function LoginForm() {
     <div className="container">
       <div className="flex justify-center items-center">
         <div className="w-full lg:w-1/3">
-          <div className="p-4 bg-gray shadow rounded-lg">
+          <div className="p-4 bg-white shadow rounded-lg">
             <form>
               <div className="mb-5">
                 <label htmlFor="email" className="block mb-2 text-sm">
