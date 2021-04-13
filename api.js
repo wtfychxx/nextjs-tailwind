@@ -1,3 +1,3 @@
-import { getData } from './pages/api/data';
+import { getData, auth } from './pages/api/data';
 
-export { getData }
+export { getData, auth }

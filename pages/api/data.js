@@ -67,3 +67,17 @@ export async function getData() {
     // const res = await http.post('/Book', {});
     return await json;
 }
+
+export async function auth(email = new String(), password = new String()) {
+    const json = {};
+    if (email === 'fadhliyulyanto@gmail.com' && password === '123123123') {
+        json.status = 200;
+        json.response = 'ok';
+        json.message = 'Successfully logged in!';
+    } else {
+        json.status = 200;
+        json.response = 'error';
+        json.message = 'Incorrect email or password!';
+    }
+    return await json;
+}
