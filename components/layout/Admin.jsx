@@ -9,9 +9,12 @@ export default function Admin(props) {
         <title>{props.title}</title>
       </Head>
 
-      <AdminNavbar />
+      <AdminSidebar />
 
-      <div className="mt-8">{props.children}</div>
+      <div className="relative md:ml-64">
+        <AdminNavbar />
+        <div className="mt-8">{props.children}</div>
+      </div>
     </div>
   );
 }
