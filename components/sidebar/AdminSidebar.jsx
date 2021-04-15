@@ -47,6 +47,49 @@ export default function AdminSidebar() {
             <UserDropdown />
           </li>
         </ul>
+
+        <div
+          className={
+            `md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded ` +
+            collapse
+          }
+        >
+          <div className="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-gray-300">
+            <div className="flex flex-wrap">
+              <div className="w-6/12">
+                <Link href="/card">
+                  <a
+                    href="#"
+                    className="md:block text-left md:pb-2 text-gray-700 mr-0 inline-block whitespace-no-wrap text-sm uppercase font-bold p-4 px-0"
+                  >
+                    SIS
+                  </a>
+                </Link>
+              </div>
+              <div className="w-6/12 flex justify-end">
+                <button
+                  className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
+                  onClick={() => setCollapse("hidden")}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
