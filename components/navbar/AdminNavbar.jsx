@@ -8,7 +8,7 @@ const AdminNavbar = () => {
         <div className="flex items-center justify-between px-4 py-4 lg:py-0 border-b border-rose-400 lg:border-b-none">
           <div>
             <a href="#" className="uppercase font-semibold text-white">
-              Brand
+              {process.env.appName}
             </a>
           </div>
         </div>

@@ -4,7 +4,11 @@ import AdminSidebar from "../sidebar/AdminSidebar";
 
 export default function Admin(props) {
   return (
-    <div className={`min-h-screen ${props.className && props.className} `}>
+    <div
+      className={`min-h-screen ${
+        props.className && props.className
+      } bg-gray-200`}
+    >
       <Head>
         <title>{props.title}</title>
       </Head>
