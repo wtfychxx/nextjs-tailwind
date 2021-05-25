@@ -30,7 +30,7 @@ const UserDropdown = () => {
         <div className="items-center flex">
           <span className="w-12 h-12 text-sm text-white bg-gray-300 inline-flex items-center justify-center rounded-full">
             <img
-              src="https://www.flaticon.com/svg/vstatic/svg/3135/3135715.svg?token=exp=1618395039~hmac=f319253b02e59e0445a71bf769b4de9e"
+              src="/public/profile.png"
               alt="..."
               className="w-full rounded-full align-middle border-none shadow-lg"
             />

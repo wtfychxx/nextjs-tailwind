@@ -2,6 +2,7 @@ import useSWR from "swr";
 import { getBook } from "../../pages/api/book";
 import * as Button from "../button/Button";
 import BookModal from "../modal/BookModal";
+import { useStore } from "../../lib";
 
 const thClass =
   "px-6 align-middle border- border-solid py-3 text-xs border-1-0 border-r-0 whitespace-no-wrap font-semibold text-left bg-gray-100 text-gray-600 border-gray-200";
@@ -10,6 +11,8 @@ const DataBook = () => {
   const { data } = useSWR(`/api/book`, () => {
     return getBook();
   });
+
+  const { showModal } = useStore();
 
   if (data != undefined) {
     return (
@@ -22,7 +25,7 @@ const DataBook = () => {
                 <td className={thClass}>{entry.title}</td>
                 <td className={thClass}>{entry.genre}</td>
                 <td className={thClass}>
-                  <Button.danger>
+                  <Button.danger onClick={showModal}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4"
@@ -51,6 +54,8 @@ const DataBook = () => {
 };
 
 const BookTable = () => {
+  // const setModalOpen = useStore((state) => state.showModal);
+  const { showModal } = useStore();
   return (
     <>
       <div
@@ -64,16 +69,13 @@ const BookTable = () => {
               <h1 className="font-semibold text-lg text-gray-800">Book</h1>
             </div>
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
-              <Button.danger
-                className="float-right"
-                onClick={(e) => setOpen(true)}
-              >
+              <Button.danger className="float-right" onClick={showModal}>
                 Add
               </Button.danger>
             </div>
           </div>
 
-          <div className="block-w-full overtime-x-auto mt-4">
+          <div className="block w-full overflow-x-auto mt-4">
             <table className="items-center w-full bg-transparent border-collapse">
               <thead>
                 <tr>

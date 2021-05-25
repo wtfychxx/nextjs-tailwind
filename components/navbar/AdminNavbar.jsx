@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const AdminNavbar = () => {
-  const [isMobile, setIsMobile] = useState(false);
   return (
     <div className="bg-gradient-to-br from-rose-500 to-pink-500 py-4">
       <div className="flex flex-col lg:flex-row">
