@@ -1,5 +1,5 @@
 import { getData, auth } from './pages/api/data';
-import { getBook } from './pages/api/book';
+import { getBook, getBookNumber } from './pages/api/book';
 
 export { getData, auth }
-export { getBook }
+export { getBook, getBookNumber }

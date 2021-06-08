@@ -1,18 +1,18 @@
-import Head from 'next/head';
-import DefaultNavbar from '../navbar/defaultNavbar';
+import React, { useMemo } from "react";
 
-export default function Layout(props){
-    return(
-        <div className={`min-h-screen ${props.className && props.className}`}>
-            <Head>
-                <title>{props.title}</title>
-            </Head>
+import Head from "next/head";
+import DefaultNavbar from "../navbar/defaultNavbar";
 
-            <DefaultNavbar />
-            
-            <div className="mt-8">
-                {props.children}
-            </div>
-        </div>
-    )
+export default function Layout(props) {
+  return (
+    <div className={`min-h-screen ${props.className && props.className}`}>
+      <Head>
+        <title>{props.title}</title>
+      </Head>
+
+      <DefaultNavbar />
+
+      <div className="mt-8">{props.children}</div>
+    </div>
+  );
 }

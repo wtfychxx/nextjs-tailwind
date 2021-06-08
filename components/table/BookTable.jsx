@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import { getBook } from "../../pages/api/book";
 import * as Button from "../button/Button";
-import BookModal from "../modal/BookModal";
-import { useStore } from "../../lib";
+import BookModal from "../modal/BookModal-original";
+import { useStoreModal } from "../../lib";
 
 const thClass =
   "px-6 align-middle border- border-solid py-3 text-xs border-1-0 border-r-0 whitespace-no-wrap font-semibold text-left bg-gray-100 text-gray-600 border-gray-200";
@@ -12,50 +12,52 @@ const DataBook = () => {
     return getBook();
   });
 
-  const { showModal } = useStore();
+  const { showModal } = useStoreModal();
 
   if (data != undefined) {
     return (
       <>
-        {data.result.map((entry, i) => {
+        {data.result?.map((entry, i) => {
           return (
-            <>
-              <tr key={i}>
-                <td className={thClass}>{entry.number}</td>
-                <td className={thClass}>{entry.title}</td>
-                <td className={thClass}>{entry.genre}</td>
-                <td className={thClass}>
-                  <Button.danger onClick={showModal}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                      />
-                    </svg>
-                  </Button.danger>
-                </td>
-              </tr>
-            </>
+            <tr key={i}>
+              <td className={thClass}>{entry.number}</td>
+              <td className={thClass}>{entry.title}</td>
+              <td className={thClass}>{entry.genre}</td>
+              <td className={thClass}>
+                <Button.danger
+                  onClick={(e) => {
+                    showModal("book-add", entry.id);
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                    />
+                  </svg>
+                </Button.danger>
+              </td>
+            </tr>
           );
         })}
       </>
     );
+  } else {
+    return null;
   }
-
-  return null;
 };
 
 const BookTable = () => {
   // const setModalOpen = useStore((state) => state.showModal);
-  const { showModal } = useStore();
+  const { showModal } = useStoreModal();
   return (
     <>
       <div
@@ -69,7 +71,12 @@ const BookTable = () => {
               <h1 className="font-semibold text-lg text-gray-800">Book</h1>
             </div>
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
-              <Button.danger className="float-right" onClick={showModal}>
+              <Button.danger
+                className="float-right"
+                onClick={(e) => {
+                  showModal("book-add");
+                }}
+              >
                 Add
               </Button.danger>
             </div>
@@ -92,8 +99,6 @@ const BookTable = () => {
           </div>
         </div>
       </div>
-
-      <BookModal />
     </>
   );
 };

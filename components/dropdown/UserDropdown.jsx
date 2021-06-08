@@ -30,7 +30,7 @@ const UserDropdown = () => {
         <div className="items-center flex">
           <span className="w-12 h-12 text-sm text-white bg-gray-300 inline-flex items-center justify-center rounded-full">
             <img
-              src="/public/profile.png"
+              src="/profile.png"
               alt="..."
               className="w-full rounded-full align-middle border-none shadow-lg"
             />

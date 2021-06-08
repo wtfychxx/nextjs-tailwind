@@ -1,9 +1,10 @@
 import create from "zustand";
 
-export const useStore = create((set) => ({
+export const useStoreModal = create((set) => ({
     open: false,
     dataId: "",
-    showModal: id => set(() => ({ dataId: id, open: true })),
+    tipeModalStore: "",
+    showModal: (tipeModalStore, id) => set(() => ({ tipeModalStore, dataId: id, open: true })),
     hideModal: () => set(() => ({ open: false })),
 }));
 

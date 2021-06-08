@@ -64,8 +64,7 @@ export default function LoginForm() {
             <form>
               <div className="mb-5">
                 <label htmlFor="email" className="block mb-2 text-sm">
-                  {" "}
-                  Email{" "}
+                  Email
                 </label>
                 <input
                   type="email"
@@ -77,8 +76,7 @@ export default function LoginForm() {
               </div>
               <div className="mb-5">
                 <label htmlFor="email" className="block mb-2 text-sm">
-                  {" "}
-                  Password{" "}
+                  Password
                 </label>
                 <input
                   type="password"
