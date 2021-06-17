@@ -4,6 +4,7 @@ import Select from "react-select";
 import { useStoreModal } from "../../lib";
 
 import { getBookNumber } from "../../api";
+import { useStoreOption } from "../../pages/lib/modal";
 
 export default function BookModal() {
   const { dataId, tipeModalStore } = useStoreModal();
@@ -22,6 +23,14 @@ export default function BookModal() {
       })();
     }
   }, [tipeModalStore]);
+
+  const example = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
+
+  const { dataGenre } = useStoreOption();
 
   return (
     <div className="w-full lg:w-1/3">
@@ -56,13 +65,7 @@ export default function BookModal() {
           <label htmlFor="email" className="block mb-2 text-sm">
             Genre
           </label>
-          <input
-            type="text"
-            name="title"
-            value={genre}
-            onChange={(e) => setGenre(e.target.value)}
-            className="w-full rounded-lg border-gray-300 shadow-sm transition duration-200 focus:ring-2 focus:ring-blue-100 focus:border-blue-500"
-          />
+          <Select options={example} />
         </div>
 
         <div className="mb-5">

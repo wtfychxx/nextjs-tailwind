@@ -8,6 +8,11 @@ export const useStoreModal = create((set) => ({
     hideModal: () => set(() => ({ open: false })),
 }));
 
+export const useStoreOption = create(set => ({
+    dataGenre: [],
+    setDataGenre: (data) => set(() => ({ dataGenre: data })),
+}));
+
 export const useStorePIN = create(set => ({
     pinStore: "",
     confirmPIN: false,

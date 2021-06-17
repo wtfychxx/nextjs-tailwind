@@ -3,6 +3,7 @@ import { getBook } from "../../pages/api/book";
 import * as Button from "../button/Button";
 import BookModal from "../modal/BookModal-original";
 import { useStoreModal } from "../../lib";
+import { useStoreOption } from "../../pages/lib/modal";
 
 const thClass =
   "px-6 align-middle border- border-solid py-3 text-xs border-1-0 border-r-0 whitespace-no-wrap font-semibold text-left bg-gray-100 text-gray-600 border-gray-200";
