@@ -21,7 +21,12 @@ export default function Book(props) {
 }
 
 export async function getStaticProps() {
-  const genre = await getCombo("genre", "");
+  const returnData = await getCombo("genre", "");
+  const genre = [];
+  returnData.map((key) => {
+    genre.push({ value: key.combo_key, label: key.combo_name });
+  });
+
   return {
     props: {
       genre,

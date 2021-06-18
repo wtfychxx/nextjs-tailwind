@@ -75,7 +75,7 @@ const BookTable = () => {
               <Button.danger
                 className="float-right"
                 onClick={(e) => {
-                  showModal("book-add");
+                  showModal("book-add", "");
                 }}
               >
                 Add
