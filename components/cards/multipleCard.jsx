@@ -5,8 +5,6 @@ const MultipleCard = () => {
   const { data } = useSWR(`/api/data`, () => {
     return getData();
   });
-
-  console.log(data);
   // return false;
 
   if (data != undefined) {

@@ -33,8 +33,13 @@ export default function BookModal() {
 
   // useForm initiation for validation
 
-  const submitHandler = () => {
-    console.log(genre.value);
+  const submitHandler = () => {};
+
+  const changeNumber = (e) => {
+    e.preventDefault();
+    const elementId = document.getElementById("bookNumber");
+
+    elementId.removeAttribute("disabled");
   };
 
   return (
@@ -44,13 +49,23 @@ export default function BookModal() {
           <label htmlFor="Number" className="block mb-2 text-sm">
             Number
           </label>
-          <input
-            type="text"
-            value={number}
-            disabled
-            onChange={(e) => setNumber(e.target.value)}
-            className="w-10/12 rounded-lg border-gray-300 shadow-sm transition duration-200 focus:ring-2 focus:ring-blue-100 focus:border-blue-500"
-          />
+          <div className="flex items-center justify-between">
+            <input
+              type="text"
+              id="bookNumber"
+              value={number}
+              disabled
+              onChange={(e) => setNumber(e.target.value)}
+              className="w-10/12 rounded-lg border-gray-300 shadow-sm transition duration-200 focus:ring-2 focus:ring-blue-100 focus:border-blue-500"
+            />
+            <a
+              className="w-2/12 text-center text-blue-400"
+              href=""
+              onClick={changeNumber}
+            >
+              Change
+            </a>
+          </div>
         </div>
 
         <div className="mb-5">
@@ -113,13 +128,15 @@ export default function BookModal() {
           ></textarea>
         </div>
 
-        <Button.primary
-          className="justify-end"
-          type="submit"
-          onClick={(e) => submitHandler()}
-        >
-          Save
-        </Button.primary>
+        <div className="flex justify-end">
+          <Button.danger
+            className="w-24"
+            type="submit"
+            onClick={(e) => submitHandler()}
+          >
+            Save
+          </Button.danger>
+        </div>
       </div>
     </div>
   );

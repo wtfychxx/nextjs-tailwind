@@ -4,7 +4,21 @@ const primary = (props) => {
     <button
       className={`${defaultClass} ${
         props.className && props.className
-      } from-blue-500 to-teal-700 hover:from-blue-700 hover:to-teal-900 transition duration-500`}
+      } from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 transition duration-500`}
+      type={props.type != "" ? props.type : "button"}
+      onClick={props.onClick != "" ? props.onClick : ""}
+    >
+      {props.children}
+    </button>
+  );
+};
+
+const secondary = (props) => {
+  return (
+    <button
+      className={`${defaultClass} ${
+        props.className && props.className
+      } from-gray-400 to-gray-800 hover:from-gray-600 hover:to-gray-900 transition duration-500`}
       type={props.type != "" ? props.type : "button"}
       onClick={props.onClick != "" ? props.onClick : ""}
     >
@@ -27,6 +41,20 @@ const danger = (props) => {
   );
 };
 
+const warning = (props) => {
+  return (
+    <button
+      className={`${defaultClass} ${
+        props.className && props.className
+      } from-yellow-300 to-yellow-600 hover:from-yellow-500 hover:to-yellow-800 transition duration-500`}
+      type={props.type != "" ? props.type : "button"}
+      onClick={props.onClick != "" ? props.onClick : ""}
+    >
+      {props.children}
+    </button>
+  );
+};
+
 const success = (props) => {
   return (
     <button
@@ -41,4 +69,4 @@ const success = (props) => {
   );
 };
 
-export { primary, danger, success };
+export { primary, secondary, danger, warning, success };
