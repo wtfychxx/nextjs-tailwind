@@ -6,17 +6,12 @@ import { useStoreModal } from "../../lib";
 import * as Button from "../button/Button";
 
 import { getBookNumber } from "../../api";
-import { useStoreOption } from "../../pages/lib/modal";
-
-const later = (delay) => {
-  return new Promise(function (resolve) {
-    setTimeout(resolve, delay);
-  });
-};
+import { useStoreOption } from "../../lib/modal";
+import { saveBook } from "../../pages/api/book";
 
 export default function BookModal() {
   // zustand initiation
-  const { dataId, tipeModalStore } = useStoreModal();
+  const { dataId, tipeModalStore, hideModal } = useStoreModal();
   const { dataGenre } = useStoreOption();
 
   // react-hook-form validation
@@ -38,19 +33,41 @@ export default function BookModal() {
     }
   }, [tipeModalStore]);
 
-  const submitHandler = (data) => {
-    console.log(data);
-    // await later(30000);
+  // submit handler for sending data to api
+  const submitHandler = async (data) => {
+    const paramData = {
+      bookNumber: data.bookNumber,
+      title: data.title,
+      genre_id: data.genre.value,
+      author: data.author,
+      releaseYear: data.releaseYear,
+      description: data.description,
+    };
+
+    const response = await saveBook(paramData);
+
+    if (response[1][1] === "ok") {
+      Swal.fire({
+        icon: response[1][2],
+        title: response[1][0],
+      }).then((result) => {
+        hideModal;
+      });
+    } else {
+      Swal.fire({
+        icon: response[1][2],
+        title: response[1][0],
+      });
+    }
   };
 
+  // disabled readonly when change button is clicked
   const changeNumber = (e) => {
     e.preventDefault();
     const elementId = document.getElementById("bookNumber");
 
     elementId.removeAttribute("readonly");
   };
-
-  console.log(errors);
 
   return (
     <form className="w-full lg:w-1/3" onSubmit={handleSubmit(submitHandler)}>

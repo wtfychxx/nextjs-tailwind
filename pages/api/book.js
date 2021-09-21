@@ -16,3 +16,10 @@ export async function getBookNumber() {
     const res = await http.post('/generate', object);
     return res.number;
 }
+
+export async function saveBook(object = new Object()) {
+
+    const res = await http.post('/Book/createData', object);
+
+    return res;
+}

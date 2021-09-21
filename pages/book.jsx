@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Admin from "../components/layout/Admin";
 import BookTable from "../components/table/BookTable";
 import { getCombo } from "./api/master";
-import { useStoreOption } from "./lib/modal";
+import { useStoreOption } from "../lib/modal";
 
 export default function Book(props) {
   const { setDataGenre } = useStoreOption();

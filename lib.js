@@ -1,5 +1,5 @@
-import { useStoreModal } from './pages/lib/modal';
-import Http from './pages/lib/http';
+import { useStoreModal } from './lib/modal';
+import Http from './lib/http';
 
 export { Http }
 export { useStoreModal }

@@ -1,8 +1,6 @@
 import React from "react";
 import Layout from "../components/layout/Layout";
 
-import { useStoreModal } from "../lib";
-
 export default function Home() {
   return (
     <>

@@ -5,7 +5,7 @@ const AdminNavbar = loadable(() => import("../navbar/AdminNavbar"));
 const AdminSidebar = loadable(() => import("../sidebar/AdminSidebar"));
 const ModalComponent = loadable(() => import("../Modal-Component"));
 
-import { useStoreModal } from "../../pages/lib/modal";
+import { useStoreModal } from "../../lib/modal";
 import { useMemo } from "react";
 
 const LoginModal = loadable(() => import("../modal/LoginModal"));
